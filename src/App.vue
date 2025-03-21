@@ -1,47 +1,122 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script setup>
+import './App.css';
+import { ref } from 'vue';
+import { useRoute } from 'vue-router';  // To get the current route for switching modes
+import Home from './components/Home.vue';
+import About from './components/About.vue';
+import Projects from './components/Project.vue';
+import Contact from './components/Contact.vue';
+import TechStacks from './components/TechStacks.vue';
+
+const sections = [
+  { id: 'home', name: 'Home', component: Home },
+  { id: 'about', name: 'About', component: About },
+  { id: 'projects', name: 'Projects', component: Projects },
+  { id: 'contact', name: 'Contact', component: Contact }
+];
+
+const isSidebarOpen = ref(false);
+
+// Get current route to determine which mode is active
+const route = useRoute();
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="flex min-h-screen bg-gray-50 text-gray-900">
+    <!-- Sidebar -->
+    <aside
+      class="fixed top-0 left-0 h-full bg-blue-900 text-white w-64 p-6 hidden md:flex flex-col justify-between shadow-lg">
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+      <!-- Navigation -->
+      <nav class="flex flex-col space-y-4">
+        <router-link v-for="section in sections" :key="section.id" :to="`#${section.id}`"
+          class="text-lg hover:text-gray-300 transition">
+          {{ section.name }}
+        </router-link>
+      </nav>
 
-  <main>
-    <TheWelcome />
-  </main>
+      <!-- Contact Section -->
+      <div class="mt-auto">
+        <!-- Email & Phone -->
+        <div class="mb-4 text-sm text-gray-300">
+          <p class="mb-1">📧 <a href="mailto:tana@example.com" class="hover:text-white">tana.jan74@gmail.com</a></p>
+          <p>📞 <a href="tel:+1234567890" class="hover:text-white">+44 7787840124</a></p>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex justify-center space-x-4">
+          <!-- LinkedIn Icon -->
+          <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank" class="hover:text-gray-300">
+            <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <!-- Discord Icon -->
+          <a href="https://discord.com/users/yourdiscordid" target="_blank" class="hover:text-gray-300">
+            <i class="fab fa-discord text-2xl"></i>
+          </a>
+          <!-- GitHub Icon -->
+          <a href="https://github.com/yourgithub" target="_blank" class="hover:text-gray-300">
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+        </div>
+      </div>
+
+    </aside>
+
+
+    <!-- Mobile Navbar -->
+    <header class="fixed top-0 left-0 w-full bg-blue-700 text-white p-4 shadow-md flex justify-between md:hidden">
+      <h1 class="text-xl font-bold">Tana Jantayavichit</h1>
+      <button @click="isSidebarOpen = !isSidebarOpen" class="text-white text-xl">☰</button>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <aside v-if="isSidebarOpen"
+      class="fixed top-0 left-0 w-64 h-full bg-blue-700 text-white p-6 flex flex-col space-y-6 shadow-lg md:hidden">
+      <button @click="isSidebarOpen = false" class="text-white text-xl self-end">✖</button>
+      <nav class="flex flex-col space-y-4">
+        <router-link v-for="section in sections" :key="section.id" :to="`#${section.id}`"
+          class="text-lg hover:text-gray-300 transition">
+          {{ section.name }}
+        </router-link>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-grow ml-0 md:ml-64 p-8 space-y-16 mt-16">
+
+      <section v-if="route.path === '/'">
+        <Home />
+        <About />
+        <TechStacks />
+        <Projects />
+        <Contact />
+      </section>
+
+
+      <section v-if="route.path === '/projects'">
+        <Projects />
+      </section>
+
+      <!-- Mode 3: Project Detail Mode -->
+      <section v-if="route.path.startsWith('/projects/')">
+        <ProjectDetails />
+      </section>
+    </main>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+html {
+  scroll-behavior: smooth;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+main {
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+section {
+  padding: 20px;
+  margin-bottom: 40px;
 }
 </style>
