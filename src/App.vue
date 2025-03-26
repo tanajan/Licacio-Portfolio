@@ -30,10 +30,12 @@ const route = useRoute();
       <!-- Navigation -->
       <nav class="flex flex-col space-y-4">
         <router-link v-for="section in sections" :key="section.id" :to="`#${section.id}`"
-          class="text-lg hover:text-gray-300 transition">
-          {{ section.name }}
+          class="text-lg relative overflow-hidden group">
+          <span class="transition-colors group-hover:text-blue-500">{{ section.name }}</span>
+          <span class="absolute bottom-0 left-0 w-0 h-1 bg-blue-500 transition-all group-hover:w-full"></span>
         </router-link>
       </nav>
+
 
       <!-- Contact Section -->
       <div class="mt-auto">
@@ -46,15 +48,15 @@ const route = useRoute();
         <!-- Social Icons -->
         <div class="flex justify-center space-x-4">
           <!-- LinkedIn Icon -->
-          <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank" class="hover:text-gray-300">
+          <a href="https://www.linkedin.com/in/tana-jan/" target="_blank" class="hover:text-gray-300">
             <i class="fab fa-linkedin text-2xl"></i>
           </a>
-          <!-- Discord Icon -->
-          <a href="https://discord.com/users/yourdiscordid" target="_blank" class="hover:text-gray-300">
-            <i class="fab fa-discord text-2xl"></i>
+          <!-- Whatsapp -->
+          <a href="https://wa.me/66626479514" target="_blank" class="hover:text-gray-300">
+            <i class="fab fa-whatsapp text-2xl"></i>
           </a>
           <!-- GitHub Icon -->
-          <a href="https://github.com/yourgithub" target="_blank" class="hover:text-gray-300">
+          <a href="https://github.com/tanajan" target="_blank" class="hover:text-gray-300">
             <i class="fab fa-github text-2xl"></i>
           </a>
         </div>
