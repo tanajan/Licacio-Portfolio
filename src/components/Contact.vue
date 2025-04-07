@@ -45,7 +45,7 @@
           class="flex items-center space-x-3 text-gray-800 hover:text-blue-600"
         >
           <i class="fab fa-linkedin text-2xl"></i>
-          <span>LinkedIn</span>
+          <span>Tana Jantayavichit</span>
         </a>
         <!-- GitHub -->
         <a
@@ -54,7 +54,7 @@
           class="flex items-center space-x-3 text-gray-800 hover:text-blue-600"
         >
           <i class="fab fa-github text-2xl"></i>
-          <span>GitHub</span>
+          <span>tanajan</span>
         </a>
         <!-- WhatsApp -->
         <a
@@ -63,15 +63,14 @@
           class="flex items-center space-x-3 text-gray-800 hover:text-green-600"
         >
           <i class="fab fa-whatsapp text-2xl text-green-600"></i>
-          <span>WhatsApp</span>
+          <span>Tana</span>
         </a>
-        <!-- Email -->
         <a
           href="mailto:tana.jan74@gmail.com"
           class="flex items-center space-x-3 text-gray-800 hover:text-blue-600"
         >
           <i class="fas fa-envelope text-2xl text-blue-600"></i>
-          <span>Email</span>
+          <span>tana.jan74@gmail.com</span>
         </a>
         <!-- Phone Number -->
         <a
@@ -79,7 +78,7 @@
           class="flex items-center space-x-3 text-gray-800 hover:text-blue-600"
         >
           <i class="fas fa-phone text-2xl text-blue-600"></i>
-          <span>Phone</span>
+          <span>(+44) 7787840124</span>
         </a>
       </div>
     </div>
@@ -87,7 +86,6 @@
 </template>
 
 <script setup>
-// No specific logic needed for now; it's a simple layout
 </script>
 
 <style scoped>

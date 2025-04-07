@@ -10,8 +10,8 @@
 import { ref, onMounted } from "vue";
 
 const roles = ["Frontend Developer", "Backend Developer", "Full Stack Developer", "Software Engineer"];
-const displayedText = ref(""); 
-const roleIndex = ref(0); 
+const displayedText = ref("");
+const roleIndex = ref(0);
 let isDeleting = false;
 let charIndex = 0;
 
@@ -23,7 +23,7 @@ const typeEffect = () => {
     charIndex++;
     if (charIndex === currentRole.length) {
       isDeleting = true;
-      setTimeout(typeEffect, 2000); // Pause before deleting
+      setTimeout(typeEffect, 2000);
       return;
     }
   } else {
@@ -31,10 +31,10 @@ const typeEffect = () => {
     charIndex--;
     if (charIndex === 0) {
       isDeleting = false;
-      roleIndex.value = (roleIndex.value + 1) % roles.length; // Move to next role
+      roleIndex.value = (roleIndex.value + 1) % roles.length;
     }
   }
-  setTimeout(typeEffect, isDeleting ? 50 : 100); // Adjust typing/deleting speed
+  setTimeout(typeEffect, isDeleting ? 50 : 100);
 };
 
 onMounted(() => {
@@ -48,6 +48,8 @@ onMounted(() => {
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 </style>

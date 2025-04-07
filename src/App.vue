@@ -48,15 +48,15 @@ const route = useRoute();
         <!-- Social Icons -->
         <div class="flex justify-center space-x-4">
           <!-- LinkedIn Icon -->
-          <a href="https://www.linkedin.com/in/tana-jan/" target="_blank" class="hover:text-gray-300">
+          <a href="https://www.linkedin.com/in/tana-jan/" target="_blank" class="hover:text-gray-300 bounce-delay-0">
             <i class="fab fa-linkedin text-2xl"></i>
           </a>
           <!-- Whatsapp -->
-          <a href="https://wa.me/66626479514" target="_blank" class="hover:text-gray-300">
+          <a href="https://wa.me/66626479514" target="_blank" class="hover:text-gray-300 bounce-delay-1">
             <i class="fab fa-whatsapp text-2xl"></i>
           </a>
           <!-- GitHub Icon -->
-          <a href="https://github.com/tanajan" target="_blank" class="hover:text-gray-300">
+          <a href="https://github.com/tanajan" target="_blank" class="hover:text-gray-300 bounce-delay-2">
             <i class="fab fa-github text-2xl"></i>
           </a>
         </div>
@@ -92,6 +92,9 @@ const route = useRoute();
         <TechStacks />
         <Projects />
         <Contact />
+        <div data-aos="fade-up">I fade up</div>
+        <div data-aos="fade-left">I fade left</div>
+        <div data-aos="zoom-in">Zoom in</div>
       </section>
 
 
@@ -120,5 +123,32 @@ main {
 section {
   padding: 20px;
   margin-bottom: 40px;
+}
+
+@keyframes wave-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce-delay-0 {
+  animation: wave-bounce 1s infinite;
+  animation-delay: 0s;
+}
+
+.bounce-delay-1 {
+  animation: wave-bounce 1s infinite;
+  animation-delay: 0.7s;
+}
+
+.bounce-delay-2 {
+  animation: wave-bounce 1s infinite;
+  animation-delay: 1.4s;
 }
 </style>
