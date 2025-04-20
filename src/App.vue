@@ -92,9 +92,9 @@ const route = useRoute();
         <TechStacks />
         <Projects />
         <Contact />
-        <div data-aos="fade-up">I fade up</div>
+        <!-- I fade up</div>
         <div data-aos="fade-left">I fade left</div>
-        <div data-aos="zoom-in">Zoom in</div>
+        <div data-aos="zoom-in">Zoom in</div> -->
       </section>
 
 
